@@ -1,0 +1,56 @@
+<!-- Using bootstrap as our Front-end Library for great UI and dynamic functions -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Results | Score Tracker</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Score Tracker</h1>
+    <p>An App to track the progress of your students in real time.</p>
+  </div>
+</div>
+<div class="container">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active">Results</li>
+    </ol>
+</div>
+{% if results|length > 0%}
+<div class="container">
+    <div class="row">
+        <h2>Results for {{ lname }}, {{ fname }}</h2>
+    </div>
+
+    <table class="table">
+    <thead>
+      <tr>
+        <th>Quiz ID</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in results %}
+      <tr>
+        <td>{{ item.qid }}</td>
+        <td>{{ item.score }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    </table>
+</div>
+{% else %}
+<div class="container">
+    <div class="row">
+        <h2>No Results for {{ lname }}, {{ fname }}</h2>
+    </div>
+</div>
+{% endif %}
+</body>
+</html>

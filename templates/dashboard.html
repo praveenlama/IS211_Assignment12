@@ -1,0 +1,90 @@
+<!-- Using bootstrap as our Front-end Library for great UI and dynamic functions -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Dashboard | Score Tracker</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Score Tracker</h1>
+    <p>An App to track the progress of your students in real time.</p>
+  </div>
+</div>
+<div class="container">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active"><a href="/">Home</a></li>
+    </ol>
+</div>
+<div class="container">
+    <div class="row">
+        <h2 class="col-md-8">List of Students</h2>
+        <form class="col-md-4" action="/student/add" method="GET" role="form">
+            <button type="submit" name="clear" class="btn btn-default btn-success">Add a Student</button>
+        </form>
+    </div>
+
+    <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>View Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in Students %}
+      <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.fname }}</td>
+        <td>{{ item.lname }}</td>
+        <td><a href="/student/{{ item.id }}">Link</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    </table>
+</div>
+<div class="container">
+    <div class="row">
+        <h2 class="col-md-8">List of Quizzes</h2>
+        <form class="col-md-4" action="/quiz/add" method="GET" role="form">
+            <button type="submit" name="clear" class="btn btn-default btn-success">Add a Quiz</button>
+        </form>
+    </div>
+
+    <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Subject</th>
+        <th>No. of Questions</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in Quizzes %}
+      <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.subject }}</td>
+        <td>{{ item.questionsNum }}</td>
+        <td>{{ item.date }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    </table>
+</div>
+<div class="container">
+    <div class="row">
+        <form action="/results/add" method="GET" role="form">
+            <button type="submit" name="results" class="btn btn-default btn-primary">Add a Student’s Quiz Result</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

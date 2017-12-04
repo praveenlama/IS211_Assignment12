@@ -1,0 +1,48 @@
+<!-- Using bootstrap as our Front-end Library for great UI and dynamic functions -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Score Tracker</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Score Tracker</h1>
+    <p>An App to track the progress of your students in real time.</p>
+  </div>
+</div>
+<div class="container">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active">Login</li>
+    </ol>
+</div>
+<div class="container">
+    <h2>Login</h2>
+    <form action="/login" method="POST" role="form">
+        <div class="form-group">
+            <label>Username:</label>
+            <input type="text" class="form-control" name="username" required>
+        </div>
+        <div class="form-group">
+            <label>Password:</label>
+            <input type="password" class="form-control" name="password" required>
+        </div>
+        <button type="submit" class="btn btn-default btn-primary">Login</button>
+    </form>
+</div>
+<div class="container">
+{% if login_failed %}
+    <div class="alert alert-danger">
+      <strong>Login Unsuccessful!</strong> Incorrect Username or Password
+    </div>
+{% endif %}
+</div>
+
+</body>
+</html>

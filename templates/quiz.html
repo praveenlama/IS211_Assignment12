@@ -1,0 +1,45 @@
+<!-- Using bootstrap as our Front-end Library for great UI and dynamic functions -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Add a Quiz | Score Tracker</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Score Tracker</h1>
+    <p>An App to track the progress of your students in real time.</p>
+  </div>
+</div>
+<div class="container">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active">Add a Quiz</li>
+    </ol>
+</div>
+<div class="container">
+    <h2>Add a Quiz</h2>
+    <form action="/quiz/add" method="POST" role="form">
+        <div class="form-group">
+            <label>Subject</label>
+            <input type="text" class="form-control" name="subject" required>
+        </div>
+        <div class="form-group">
+            <label>Number of Questions:</label>
+            <input type="number" class="form-control" name="questionsNum" required>
+        </div>
+        <div class="form-group">
+            <label>Date:</label>
+            <input type="date" class="form-control" name="date" required>
+        </div>
+        <button type="submit" class="btn btn-default btn-primary">Add a Quiz</button>
+    </form>
+</div>
+
+</body>
+</html>
